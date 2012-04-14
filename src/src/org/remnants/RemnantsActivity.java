@@ -1,6 +1,7 @@
 package org.remnants;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 public class RemnantsActivity extends Activity {
@@ -9,5 +10,8 @@ public class RemnantsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        Intent intent = new Intent(this, RemnantsService.class);
+        startService(intent);
     }
 }
