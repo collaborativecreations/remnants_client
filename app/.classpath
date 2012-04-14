@@ -4,5 +4,9 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="libs/couchbase.jar"/>
+	<classpathentry kind="lib" path="libs/OtpErlang.jar"/>
+	<classpathentry kind="lib" path="/home/matt/workspace/remnants_client/app/libs/org.ektorp.android-1.2.2.jar"/>
+	<classpathentry kind="lib" path="/home/matt/workspace/remnants_client/app/libs/org.ektorp-1.2.2.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

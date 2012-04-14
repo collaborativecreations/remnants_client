@@ -11,6 +11,7 @@ import android.widget.Toast;
 public class RemnantsService extends Service {
 
 	static Notification _notification;
+	private RemnantsDatabase remnantsDatabase;
 	
 	public static void start(Activity activity, Class objclass)
 	{	
@@ -29,6 +30,7 @@ public class RemnantsService extends Service {
 		_notification.setLatestEventInfo(this, getText(R.string.app_name), 
 				getText(R.string.hello), pendingIntent);
 		startForeground(5, _notification);
+		remnantsDatabase = new RemnantsDatabase(getBaseContext());
 		
 		return super.onStartCommand(intent, flags, startId);
 	}
