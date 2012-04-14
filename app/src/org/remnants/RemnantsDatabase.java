@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.couchbase.android.CouchbaseMobile;
 import com.couchbase.android.ICouchbaseDelegate;
@@ -30,12 +31,12 @@ public class RemnantsDatabase {
 	private final ICouchbaseDelegate mDelegate = new ICouchbaseDelegate() {
 		@Override
 		public void couchbaseStarted(String host, int port) {
-			Log.i(TAG, "STARTED");
+			Toast.makeText(remnantsContext, "DB Started", Toast.LENGTH_LONG).show();
 		}
 
 		@Override
 		public void exit(String error) {
-			Log.i(TAG, "STOPPED");
+			Toast.makeText(remnantsContext, "DB Stopped", Toast.LENGTH_LONG).show();
 		}
 	};
 
