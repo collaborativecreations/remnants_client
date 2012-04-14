@@ -10,18 +10,16 @@ import android.widget.Toast;
 
 public class RemnantsService extends Service {
 
-	static Notification _notification;
+	Notification _notification;
 	private RemnantsDatabase remnantsDatabase;
-	
-	public static void start(Activity activity, Class objclass)
-	{	
-		
-	}
+	boolean _initialized = false;
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
-		Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
+		if(_initialized) return super.onStartCommand(intent, flags, startId);
+		_initialized = true;
+		//Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
 		
 		_notification = new Notification(R.drawable.ic_launcher, getText(R.string.app_name),
 				System.currentTimeMillis());
