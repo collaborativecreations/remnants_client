@@ -13,21 +13,21 @@ import android.widget.Toast;
 public class RemnantsSocket implements IOCallback
 {
 	private SocketIO socket;
-	private IOCallback callback;
-	private String url = "http://192.168.2.12:8080/";
 	private Context remnantsContext;
 	private Toast connectMsg, errorMsg, disconnectMsg;
 	
 	public RemnantsSocket(Context context) 
 	{
 		remnantsContext = context;
-		connectMsg = Toast.makeText(remnantsContext, "Connected to " + url, Toast.LENGTH_LONG);
 		errorMsg = Toast.makeText(remnantsContext, "Socket error", Toast.LENGTH_LONG);
+	}
+	
+	public void connect(String url)
+	{
+		socket = new SocketIO();  //instantiate new socket when connecting to avoid problems when we reconnect after losing wifi
+		
+		connectMsg = Toast.makeText(remnantsContext, "Connected to " + url, Toast.LENGTH_LONG);
 		disconnectMsg = Toast.makeText(remnantsContext, "Disconnected from " + url, Toast.LENGTH_LONG);
-		
-
-		socket = new SocketIO();
-		
 		try
 		{
 			socket.connect(url, this);
@@ -36,6 +36,11 @@ public class RemnantsSocket implements IOCallback
 		{
 			e.printStackTrace();
 		}	
+	}
+	
+	public void disconnect()
+	{
+		socket.disconnect();
 	}
 
 	@Override
